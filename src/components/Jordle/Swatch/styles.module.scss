@@ -1,0 +1,31 @@
+$swatch-size: 40px;
+$swatch-border: 5px;
+
+.outer {
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  border-radius: 50%;
+  height: $swatch-size;
+  width: $swatch-size;
+  position: relative;
+}
+
+.inner {
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: calc(100% - 2 * #{$swatch-border});
+  width: calc(100% - 2 * #{$swatch-border});
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  svg {
+    opacity: 0.6;
+    height: 20px;
+    width: 20px;
+  }
+}

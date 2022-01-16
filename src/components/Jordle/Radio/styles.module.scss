@@ -1,0 +1,68 @@
+$swatch-size: 40px;
+$swatch-border: 5px;
+
+.outer {
+  height: $swatch-size;
+  width: $swatch-size;
+  position: relative;
+  padding: $swatch-border;
+}
+
+.inner {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  border-radius: 50%;
+
+  input {
+    width: 100%;
+    height: 100%;
+    appearance: none;
+    cursor: pointer;
+
+    &::before {
+      content: "";
+      width: 100%;
+      height: 100%;
+      background-color: #fff;
+      border: 1px solid rgba(0, 0, 0, 0.4);
+      border-radius: 50%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+
+    &::after {
+      content: attr(data-label);
+      color: var(--primary);
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    &::before,
+    &::after {
+      opacity: 0;
+      transition: opacity 0.2s ease-in-out;
+    }
+
+    &:checked::before,
+    &:checked::after {
+      opacity: 1;
+    }
+  }
+}
+
+.radio {
+  height: $swatch-size;
+  width: $swatch-size;
+  border: solid 1px #cccccc;
+  margin-right: 8px;
+  position: relative;
+
+  input {
+  }
+}

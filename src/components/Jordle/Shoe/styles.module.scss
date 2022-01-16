@@ -1,0 +1,11 @@
+.outer {
+  svg {
+    width: 100%;
+    max-width: 500px;
+
+    path,
+    g {
+      transition: fill 0.2s ease-in-out, stroke 0.2s ease-in-out;
+    }
+  }
+}

@@ -1,0 +1,33 @@
+.outer {
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+  border-top-left-radius: 18px;
+  border-top-right-radius: 18px;
+  padding: 10px 20px;
+}
+
+.steps {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.button:disabled {
+  color: var(--secondary);
+}
+
+.label {
+  margin: 0 1em;
+  font-weight: bold;
+
+  span {
+    color: var(--secondary);
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 40px);
+  grid-gap: 20px;
+}
