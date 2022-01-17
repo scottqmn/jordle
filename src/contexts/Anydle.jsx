@@ -5,42 +5,42 @@ const initialState = {
   initialized: false,
   answer: [],
   guesses: [
-    [
-      { value: "white", status: 0 },
-      { value: "white", status: 0 },
-      { value: "white", status: 0 },
-      { value: "white", status: 0 },
-    ],
-    [
-      { value: "white", status: 0 },
-      { value: "white", status: 0 },
-      { value: "white", status: 0 },
-      { value: "white", status: 0 },
-    ],
-    [
-      { value: "white", status: 0 },
-      { value: "white", status: 0 },
-      { value: "white", status: 0 },
-      { value: "white", status: 0 },
-    ],
-    [
-      { value: "white", status: 0 },
-      { value: "white", status: 0 },
-      { value: "white", status: 0 },
-      { value: "white", status: 0 },
-    ],
-    [
-      { value: "white", status: 0 },
-      { value: "white", status: 0 },
-      { value: "white", status: 0 },
-      { value: "white", status: 0 },
-    ],
-    [
-      { value: "white", status: 0 },
-      { value: "white", status: 0 },
-      { value: "white", status: 0 },
-      { value: "white", status: 0 },
-    ],
+    // [
+    //   { value: "white", status: 0 },
+    //   { value: "white", status: 0 },
+    //   { value: "white", status: 0 },
+    //   { value: "white", status: 0 },
+    // ],
+    // [
+    //   { value: "white", status: 0 },
+    //   { value: "white", status: 0 },
+    //   { value: "white", status: 0 },
+    //   { value: "white", status: 0 },
+    // ],
+    // [
+    //   { value: "white", status: 0 },
+    //   { value: "white", status: 0 },
+    //   { value: "white", status: 0 },
+    //   { value: "white", status: 0 },
+    // ],
+    // [
+    //   { value: "white", status: 0 },
+    //   { value: "white", status: 0 },
+    //   { value: "white", status: 0 },
+    //   { value: "white", status: 0 },
+    // ],
+    // [
+    //   { value: "white", status: 0 },
+    //   { value: "white", status: 0 },
+    //   { value: "white", status: 0 },
+    //   { value: "white", status: 0 },
+    // ],
+    // [
+    //   { value: "white", status: 0 },
+    //   { value: "white", status: 0 },
+    //   { value: "white", status: 0 },
+    //   { value: "white", status: 0 },
+    // ],
   ],
 };
 

@@ -16,38 +16,10 @@ const Jordle = () => {
   // Context values
   const { dispatch, state } = useContext(Anydle);
 
+  // State variables
   const [showHistory, setShowHistory] = useState(false);
   const [activePalette, setActivePalette] = useState([]);
   const [guessPalette, setGuessPalette] = useState(null);
-
-  const setColor = useCallback(
-    (color, index) => {
-      const nextPalette = [...activePalette];
-      nextPalette[index] = color;
-      setActivePalette(nextPalette);
-    },
-    [activePalette, dispatch]
-  );
-
-  const submitGuess = useCallback(() => {
-    dispatch({ type: "ADD_GUESS", payload: activePalette });
-    setActivePalette([]);
-  }, [activePalette, setActivePalette, dispatch]);
-
-  const getRandomPalette = () => {
-    const randomPalette = [];
-    for (let i = 0; i < ANSWER_LENGTH; i += 1) {
-      const randomIndex = Math.floor(Math.random() * OPTIONS.length);
-      randomPalette.push(OPTIONS[randomIndex]);
-    }
-    return randomPalette;
-  };
-
-  const start = () => {
-    const answer = getRandomPalette();
-    dispatch({ type: "INIT", payload: answer });
-  };
-
   const [startIndex, setStartIndex] = useState(0);
   const incStartIndex = useCallback(() => {
     if (!state.initialized) {
@@ -63,28 +35,74 @@ const Jordle = () => {
     };
   }, []);
 
-  const palette = useMemo(() => {
-    return state.initialized
-      ? guessPalette || activePalette
-      : OG_COLORS[startIndex];
-  }, [state.initialized, startIndex, guessPalette, activePalette]);
+  const getRandomPalette = () => {
+    const randomPalette = [];
+    for (let i = 0; i < ANSWER_LENGTH; i += 1) {
+      const randomIndex = Math.floor(Math.random() * OPTIONS.length);
+      randomPalette.push(OPTIONS[randomIndex]);
+    }
+    return randomPalette;
+  };
 
-  return (
-    <div className={styles.outer}>
-      <div className={styles.inner}>
+  const start = () => {
+    const answer = getRandomPalette();
+    dispatch({ type: "INIT", payload: answer });
+  };
+
+  const setColor = useCallback(
+    (color, index) => {
+      const nextPalette = [...activePalette];
+      nextPalette[index] = color;
+      setActivePalette(nextPalette);
+    },
+    [activePalette, dispatch]
+  );
+
+  const submitGuess = useCallback(() => {
+    dispatch({ type: "ADD_GUESS", payload: activePalette });
+    setActivePalette([]);
+  }, [activePalette, setActivePalette, dispatch]);
+
+  const victory = useMemo(() => {
+    const totalGuesses = state.guesses.length;
+    return (
+      totalGuesses &&
+      state.guesses[totalGuesses - 1].reduce(
+        (acc, { status }) => acc || status === 2,
+        true
+      )
+    );
+  }, [state.guesses]);
+
+  const gameOver = useMemo(() => {
+    return state.guesses.length === 6;
+  }, [state.guesses]);
+
+  const renderContent = () => {
+    if (victory) {
+      return <div>victory!</div>;
+    }
+
+    if (gameOver) {
+      return <div>game over!</div>;
+    }
+
+    if (!state.initialized) {
+      return (
         <div>
-          <Shoe palette={palette} />
-          {state.initialized ? (
-            <>
-              <DrawerToggle
-                state={showHistory}
-                toggle={() => setShowHistory((curr) => !curr)}
-              />
-            </>
-          ) : (
-            <Button onClick={start}>Start</Button>
-          )}
+          <Shoe palette={OG_COLORS[startIndex]} />
+          <Button onClick={start}>Start</Button>
         </div>
+      );
+    }
+
+    return (
+      <div>
+        <Shoe palette={guessPalette || activePalette} />
+        <DrawerToggle
+          state={showHistory}
+          toggle={() => setShowHistory((curr) => !curr)}
+        />
         <Drawer>
           {showHistory ? (
             <History guesses={state.guesses} setPreview={setGuessPalette} />
@@ -97,6 +115,12 @@ const Jordle = () => {
           )}
         </Drawer>
       </div>
+    );
+  };
+
+  return (
+    <div className={styles.outer}>
+      <div className={styles.inner}>{renderContent()}</div>
     </div>
   );
 };
