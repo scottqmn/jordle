@@ -4,10 +4,17 @@
 
 .inner {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr;
   grid-gap: 20px;
   max-width: 600px;
   margin: 0 auto;
+
+  // @media (min-width: 480px) {
+  //   grid-template-columns: repeat(2, 1fr);
+  // }
+}
+
+.drawer {
 }
 
 .palettes {

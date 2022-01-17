@@ -1,0 +1,29 @@
+.outer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+}
+
+.label {
+  font-weight: bold;
+  text-align: center;
+}
+
+.list {
+  padding: 0;
+
+  li {
+    list-style: none;
+
+    &:not(:first-child) {
+      margin-top: 1em;
+    }
+  }
+}

@@ -21,7 +21,6 @@ const Radio = ({ name, value, checked, onChange }) => {
           checked={checked}
           onChange={onChange}
           aria-label={formattedName}
-          data-label={formattedName}
         />
       </label>
     </div>

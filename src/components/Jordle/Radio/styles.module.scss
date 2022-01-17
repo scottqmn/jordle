@@ -35,12 +35,15 @@ $swatch-border: 5px;
     }
 
     &::after {
-      content: attr(data-label);
+      content: attr(aria-label);
       color: var(--primary);
       position: absolute;
       top: 100%;
       left: 50%;
-      transform: translateX(-50%);
+      transform: translate(-50%, 20%);
+      white-space: nowrap;
+      font-size: 0.75rem;
+      font-weight: bold;
     }
 
     &::before,

@@ -48,3 +48,19 @@ export const PALETTE_LABELS = [
   { id: "logo", label: "Logo" },
   { id: "foxing", label: "Foxing" },
 ];
+
+export const OG_COLORS = [
+  ["white", "varsity_red", "black", "varsity_red"],
+  ["white", "black", "black", "varsity_red"],
+  ["varsity_red", "black", "varsity_red", "varsity_red"],
+  ["royal_blue", "black", "royal_blue", "royal_blue"],
+  ["shadow", "black", "shadow", "shadow"],
+  ["white", "black", "black", "black"],
+  ["white", "storm_blue", "storm_blue", "storm_blue"],
+  ["white", "unc_blue", "unc_blue", "unc_blue"],
+  ["white", "white", "neutral_grey", "white"],
+  // ["white", "white", "metallic_red", "white"],
+  // ["white", "white", "metallic_navy", "white"],
+  // ["white", "white", "metallic_purple", "white"],
+  // ["white", "white", "metallic_green", "white"],
+];
